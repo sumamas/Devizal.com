@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Development Services | Devizal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0a192f;
+            --electric-purple: #7c4dff;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--electric-purple);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--electric-purple);
+        }
+        
+        .cta-button {
+            background-color: var(--electric-purple);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #6a3dff;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .breadcrumb li {
+            margin: 0 10px;
+        }
+        
+        .breadcrumb li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb li a:hover {
+            color: var(--electric-purple);
+        }
+        
+        .breadcrumb li::after {
+            content: '/';
+            margin-left: 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .breadcrumb li:last-child::after {
+            display: none;
+        }
+        
+        /* Service Hero */
+        .service-hero {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .service-hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .service-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .service-content h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--electric-purple);
+        }
+        
+        .service-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .service-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--electric-purple);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            border-left: 4px solid var(--electric-purple);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: var(--electric-purple);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            counter-reset: step-counter;
+        }
+        
+        .process-step {
+            position: relative;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .process-step::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            width: 60px;
+            height: 60px;
+            background-color: var(--electric-purple);
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            width: 100%;
+            height: 2px;
+            background-color: var(--electric-purple);
+            z-index: 1;
+        }
+        
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        .process-step h3 {
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .process-step p {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Portfolio Showcase */
+        .portfolio-showcase {
+            padding: 80px 0;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 25, 47, 0.9), transparent);
+            color: var(--white);
+            padding: 20px;
+        }
+        
+        .portfolio-overlay h3 {
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            background-color: var(--light-gray);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .footer-logo span {
+            color: var(--electric-purple);
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: var(--white);
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--electric-purple);
+        }
+        
+        .footer-links h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--electric-purple);
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--electric-purple);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .service-hero-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .process-step::after {
+                top: 100%;
+                left: 50%;
+                width: 2px;
+                height: 40px;
+                transform: translateX(-50%);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            
+            .page-header {
+                padding: 100px 0 40px;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Devizal<span>.</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html" class="cta-button">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Website Development</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="website-development.html">Website Development</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Service Hero Section -->
+    <section class="service-hero">
+        <div class="container service-hero-container">
+            <div class="service-content">
+                <h2>Professional Website Development Services</h2>
+                <p>At Devizal, we create stunning, high-performance websites that represent your brand and engage your audience. Our custom websites are designed to convert visitors into customers while providing an exceptional user experience.</p>
+                <p>Whether you need a simple brochure website, a complex web application, or anything in between, our team has the expertise to deliver a solution that meets your business goals.</p>
+                <a href="contact.html" class="cta-button" style="display: inline-block; margin-top: 20px;">Get a Free Quote</a>
+            </div>
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Website Development">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Website Development Features</h2>
+                <p>We combine beautiful design with powerful functionality to create websites that deliver results</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive Design</h3>
+                    <p>Your website will look and function perfectly on all devices, from desktops to smartphones, ensuring a seamless experience for all users.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Fast Loading</h3>
+                    <p>We optimize every aspect of your website for speed, reducing bounce rates and improving search engine rankings.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SEO Optimized</h3>
+                    <p>Our websites are built with SEO best practices in mind, helping you rank higher in search results and attract more organic traffic.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure & Reliable</h3>
+                    <p>We implement robust security measures to protect your website and your visitors' data from potential threats.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>CMS Integration</h3>
+                    <p>Easily manage your content with user-friendly CMS options like WordPress, or our custom solutions tailored to your needs.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analytics Ready</h3>
+                    <p>Track visitor behavior and measure performance with built-in analytics integration to inform your marketing decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Website Development Process</h2>
+                <p>A structured approach to ensure your project's success</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <h3>Discovery & Planning</h3>
+                    <p>We start by understanding your business, goals, and requirements to create a detailed project plan.</p>
+                </div>
+                
+                <div class="process-step">
+                    <h3>UI/UX Design</h3>
+                    <p>Our designers create wireframes and prototypes for your review and approval before development begins.</p>
+                </div>
+                
+                <div class="process-step">
+                    <h3>Development</h3>
+                    <p>Our developers build your website using the latest technologies and coding standards.</p>
+                </div>
+                
+                <div class="process-step">
+                    <h3>Testing & Quality Assurance</h3>
+                    <p>We rigorously test all functionality across devices and browsers to ensure flawless performance.</p>
+                </div>
+                
+                <div class="process-step">
+                    <h3>Launch & Training</h3>
+                    <p>We deploy your website and provide training on how to manage and update your content.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Showcase -->
+    <section class="portfolio-showcase">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Website Projects</h2>
+                <p>Some of our recent website development work for clients across various industries</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="E-commerce Website">
+                    <div class="portfolio-overlay">
+                        <h3>E-commerce Store</h3>
+                        <p>Complete online shopping solution</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Corporate Website">
+                    <div class="portfolio-overlay">
+                        <h3>Corporate Website</h3>
+                        <p>Professional business presence</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Web Application">
+                    <div class="portfolio-overlay">
+                        <h3>Business Portal</h3>
+                        <p>Custom web application</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="portfolio.html" class="cta-button">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Website Development FAQs</h2>
+                <p>Answers to common questions about our website development services</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How long does it take to develop a website?</span>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>The timeline depends on the complexity of your project. A basic brochure website typically takes 4-6 weeks, while more complex websites or web applications can take 8-12 weeks or longer. We'll provide a detailed timeline after understanding your requirements.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What technologies do you use for website development?</span>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We use a variety of technologies depending on project requirements, including HTML5, CSS3, JavaScript, React, Vue.js, PHP, Laravel, WordPress, and more. We choose the best stack for your specific needs.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you provide website hosting?</span>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer reliable hosting solutions as part of our services. We can also help you migrate an existing website to our hosting or set up your website on your preferred hosting provider.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Will my website be mobile-friendly?</span>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! All websites we develop are fully responsive and optimized for mobile devices. We test on various screen sizes to ensure perfect display and functionality.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you provide maintenance after launch?</span>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer various maintenance packages to keep your website updated, secure, and performing at its best. This includes security updates, content updates, performance optimization, and technical support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Build Your Website?</h2>
+            <p>Contact us today to discuss your project and get a free consultation with our web development experts.</p>
+            <a href="contact.html" class="cta-button">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">Devizal<span>.</span></a>
+                    <p>We deliver innovative digital solutions that help businesses grow and succeed in the modern marketplace.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="website-development.html">Website Development</a></li>
+                        <li><a href="#">Software Solutions</a></li>
+                        <li><a href="#">E-commerce Platforms</a></li>
+                        <li><a href="#">Web Applications</a></li>
+                        <li><a href="#">CMS Development</a></li>
+                        <li><a href="#">Maintenance & Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Karachi, Pakistan</p>
+                    <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+                    <p><i class="fas fa-envelope"></i> info@devizal.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Devizal. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentNode;
+                item.classList.toggle('active');
+                
+                // Close other open items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Devizal - Software & Web Development Company</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0a192f;
+            --electric-purple: #7c4dff;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--electric-purple);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--electric-purple);
+        }
+        
+        .cta-button {
+            background-color: var(--electric-purple);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #6a3dff;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .breadcrumb li {
+            margin: 0 10px;
+        }
+        
+        .breadcrumb li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb li a:hover {
+            color: var(--electric-purple);
+        }
+        
+        .breadcrumb li::after {
+            content: '/';
+            margin-left: 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .breadcrumb li:last-child::after {
+            display: none;
+        }
+        
+        /* Services Main Section */
+        .services-main {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--electric-purple);
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--electric-purple);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 50px;
+            color: var(--electric-purple);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            margin-bottom: 20px;
+        }
+        
+        .service-features {
+            margin: 25px 0;
+        }
+        
+        .service-features li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .service-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--electric-purple);
+        }
+        
+        .learn-more {
+            color: var(--electric-purple);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .learn-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .learn-more:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .pricing-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--electric-purple);
+            color: var(--white);
+            padding: 5px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            transform: rotate(45deg) translate(30%, -50%);
+            transform-origin: top right;
+            width: 150px;
+            text-align: center;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pricing-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--electric-purple);
+            margin-bottom: 20px;
+        }
+        
+        .price span {
+            font-size: 16px;
+            font-weight: 400;
+            color: #666;
+        }
+        
+        .pricing-features {
+            margin: 25px 0;
+        }
+        
+        .pricing-features li {
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 80px 0;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            counter-reset: step-counter;
+        }
+        
+        .process-step {
+            position: relative;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .process-step::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            width: 60px;
+            height: 60px;
+            background-color: var(--electric-purple);
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            width: 100%;
+            height: 2px;
+            background-color: var(--electric-purple);
+            z-index: 1;
+        }
+        
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        .process-step h3 {
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .process-step p {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .footer-logo span {
+            color: var(--electric-purple);
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: var(--white);
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--electric-purple);
+        }
+        
+        .footer-links h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--electric-purple);
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--electric-purple);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .process-step::after {
+                top: 100%;
+                left: 50%;
+                width: 2px;
+                height: 40px;
+                transform: translateX(-50%);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            
+            .page-header {
+                padding: 100px 0 40px;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .price {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Devizal<span>.</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html" class="cta-button">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Services</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Services Main Section -->
+    <section class="services-main">
+        <div class="container">
+            <div class="section-title">
+                <h2>Comprehensive Digital Solutions</h2>
+                <p>We offer end-to-end software and web development services tailored to your business needs</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Website Development</h3>
+                    <p>Professional websites that represent your brand and engage your audience with responsive design and optimal performance.</p>
+                    
+                    <ul class="service-features">
+                        <li>Custom responsive design</li>
+                        <li>SEO-friendly structure</li>
+                        <li>Fast loading times</li>
+                        <li>CMS integration</li>
+                        <li>Ongoing maintenance</li>
+                    </ul>
+                    
+                    <a href="website-development.html" class="learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Custom Software</h3>
+                    <p>Tailored software applications that streamline your business processes and improve operational efficiency.</p>
+                    
+                    <ul class="service-features">
+                        <li>Business process automation</li>
+                        <li>Custom CRM/ERP solutions</li>
+                        <li>Inventory management</li>
+                        <li>Reporting dashboards</li>
+                        <li>API integrations</li>
+                    </ul>
+                    
+                    <a href="custom-software.html" class="learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-commerce Solutions</h3>
+                    <p>Powerful online stores with secure payment gateways, inventory management, and customer-friendly interfaces.</p>
+                    
+                    <ul class="service-features">
+                        <li>WooCommerce/Shopify development</li>
+                        <li>Payment gateway integration</li>
+                        <li>Product management</li>
+                        <li>Order tracking</li>
+                        <li>Marketing tools</li>
+                    </ul>
+                    
+                    <a href="ecommerce-solutions.html" class="learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Web Applications</h3>
+                    <p>Interactive web apps that provide seamless user experiences across all devices and platforms.</p>
+                    
+                    <ul class="service-features">
+                        <li>Single Page Applications (SPA)</li>
+                        <li>Progressive Web Apps (PWA)</li>
+                        <li>Real-time functionality</li>
+                        <li>User authentication</li>
+                        <li>Database integration</li>
+                    </ul>
+                    
+                    <a href="web-applications.html" class="learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>CMS Development</h3>
+                    <p>Custom content management systems that give you full control over your website content.</p>
+                    
+                    <ul class="service-features">
+                        <li>WordPress customization</li>
+                        <li>Headless CMS solutions</li>
+                        <li>Custom admin panels</li>
+                        <li>User role management</li>
+                        <li>Workflow automation</li>
+                    </ul>
+                    
+                    <a href="cms-development.html" class="learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Maintenance & Support</h3>
+                    <p>Ongoing technical support and maintenance services to keep your digital products running smoothly.</p>
+                    
+                    <ul class="service-features">
+                        <li>24/7 monitoring</li>
+                        <li>Regular updates</li>
+                        <li>Security patches</li>
+                        <li>Performance optimization</li>
+                        <li>Emergency support</li>
+                    </ul>
+                    
+                    <a href="maintenance-support.html" class="learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Transparent Pricing</h2>
+                <p>Flexible packages to suit businesses of all sizes</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$499<span>/project</span></div>
+                    <p>Perfect for small businesses and startups</p>
+                    
+                    <ul class="pricing-features">
+                        <li>5 Page Website</li>
+                        <li>Responsive Design</li>
+                        <li>Basic SEO</li>
+                        <li>Contact Form</li>
+                        <li>1 Month Support</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="cta-button" style="display: inline-block; margin-top: 20px;">Get Started</a>
+                </div>
+                
+                <div class="pricing-card" style="position: relative;">
+                    <div class="popular-badge">Popular</div>
+                    <h3>Business</h3>
+                    <div class="price">$1,299<span>/project</span></div>
+                    <p>Ideal for growing businesses</p>
+                    
+                    <ul class="pricing-features">
+                        <li>Up to 15 Pages</li>
+                        <li>Custom Design</li>
+                        <li>Advanced SEO</li>
+                        <li>CMS Integration</li>
+                        <li>3 Months Support</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="cta-button" style="display: inline-block; margin-top: 20px;">Get Started</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom<span>/quote</span></div>
+                    <p>Tailored solutions for large organizations</p>
+                    
+                    <ul class="pricing-features">
+                        <li>Unlimited Pages</li>
+                        <li>Custom Web Applications</li>
+                        <li>E-commerce Solutions</li>
+                        <li>API Integrations</li>
+                        <li>Ongoing Maintenance</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="cta-button" style="display: inline-block; margin-top: 20px;">Get a Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Development Process</h2>
+                <p>A structured approach to ensure project success</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <h3>Discovery</h3>
+                    <p>We analyze your requirements and business goals to create a detailed project plan.</p>
+                </div>
+                
+                <div class="process-step">
+                    <h3>Design</h3>
+                    <p>Our designers create wireframes and prototypes for your review and approval.</p>
+                </div>
+                
+                <div class="process-step">
+                    <h3>Development</h3>
+                    <p>Our developers build your solution using industry best practices and standards.</p>
+                </div>
+                
+                <div class="process-step">
+                    <h3>Testing</h3>
+                    <p>We rigorously test all functionality across devices and browsers.</p>
+                </div>
+                
+                <div class="process-step">
+                    <h3>Launch</h3>
+                    <p>We deploy your solution and provide training and documentation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Discuss Your Project?</h2>
+            <p>Get in touch with our team to discuss your requirements and receive a customized solution proposal.</p>
+            <a href="contact.html" class="cta-button">Get a Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">Devizal<span>.</span></a>
+                    <p>We deliver innovative digital solutions that help businesses grow and succeed in the modern marketplace.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Website Development</a></li>
+                        <li><a href="#">Software Solutions</a></li>
+                        <li><a href="#">E-commerce Platforms</a></li>
+                        <li><a href="#">Web Applications</a></li>
+                        <li><a href="#">CMS Development</a></li>
+                        <li><a href="#">Maintenance & Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Karachi, Pakistan</p>
+                    <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+                    <p><i class="fas fa-envelope"></i> info@devizal.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Devizal. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
