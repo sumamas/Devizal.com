@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - DEVIZAL | Turning Ideas into Digital Reality</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Reusing the same styles from index.html with additions for services page */
+        
+        /* Services Page Specific Styles */
+        .services-hero {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .services-hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .services-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background-color: var(--secondary-bg);
+            border-radius: var(--card-radius);
+            padding: 40px 30px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: var(--transition);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 191, 255, 0.1), rgba(0, 255, 157, 0.1));
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        
+        .service-features {
+            margin-bottom: 25px;
+        }
+        
+        .service-features li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .service-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--accent-blue);
+        }
+        
+        /* Process Section */
+        .our-process {
+            padding: 100px 0;
+            background-color: var(--secondary-bg);
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 50px;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+            z-index: 1;
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            width: 20%;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            border: 2px solid var(--accent-blue);
+            transition: var(--transition);
+        }
+        
+        .process-step:hover .step-number {
+            background-color: var(--accent-blue);
+            color: #121212;
+            transform: scale(1.1);
+        }
+        
+        .step-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .step-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+        }
+        
+        .pricing-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .pricing-tab {
+            padding: 10px 30px;
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--accent-blue);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+        
+        .pricing-tab:first-child {
+            border-radius: 30px 0 0 30px;
+            border-right: none;
+        }
+        
+        .pricing-tab:last-child {
+            border-radius: 0 30px 30px 0;
+            border-left: none;
+        }
+        
+        .pricing-tab.active,
+        .pricing-tab:hover {
+            background-color: var(--accent-blue);
+            color: #121212;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background-color: var(--secondary-bg);
+            border-radius: var(--card-radius);
+            padding: 40px 30px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid var(--accent-blue);
+        }
+        
+        .popular-label {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background-color: var(--accent-blue);
+            color: #121212;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+        
+        .pricing-features {
+            margin-bottom: 30px;
+        }
+        
+        .pricing-features li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .pricing-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--accent-blue);
+        }
+        
+        .pricing-features li.disabled {
+            opacity: 0.5;
+        }
+        
+        .pricing-features li.disabled::before {
+            content: '\f00d';
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .process-steps {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 30px;
+            }
+            
+            .process-steps::before {
+                display: none;
+            }
+            
+            .process-step {
+                width: 45%;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .services-hero {
+                height: 50vh;
+            }
+            
+            .services-hero h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .services-hero {
+                height: 40vh;
+            }
+            
+            .services-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .process-step {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .services-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .pricing-tabs {
+                flex-direction: column;
+            }
+            
+            .pricing-tab {
+                border-radius: 30px !important;
+                border: 1px solid var(--accent-blue);
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">DEVI<span>ZAL</span></a>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Services Hero Section -->
+    <section class="services-hero">
+        <div class="container">
+            <div class="services-hero-content" data-aos="fade-up">
+                <h1>Our Services</h1>
+                <p>Comprehensive digital solutions tailored to your business needs</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">What We <span class="text-accent">Offer</span></h2>
+                <p class="section-subtitle">We provide a full range of digital services to help your business grow and succeed online</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Custom Website Development</h3>
+                    <p>Bespoke websites designed to reflect your brand and engage your audience.</p>
+                    <ul class="service-features">
+                        <li>Responsive design for all devices</li>
+                        <li>SEO optimized structure</li>
+                        <li>Custom content management</li>
+                        <li>Performance optimization</li>
+                    </ul>
+                    <a href="#pricing" class="btn btn-secondary">View Pricing</a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile App Development</h3>
+                    <p>Native and cross-platform mobile applications for iOS and Android.</p>
+                    <ul class="service-features">
+                        <li>User-centered design</li>
+                        <li>API integration</li>
+                        <li>Push notifications</li>
+                        <li>App store optimization</li>
+                    </ul>
+                    <a href="#pricing" class="btn btn-secondary">View Pricing</a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-commerce Solutions</h3>
+                    <p>Complete online stores designed to maximize conversions and sales.</p>
+                    <ul class="service-features">
+                        <li>Product catalog management</li>
+                        <li>Secure payment gateways</li>
+                        <li>Inventory tracking</li>
+                        <li>Marketing integrations</li>
+                    </ul>
+                    <a href="#pricing" class="btn btn-secondary">View Pricing</a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Web Applications</h3>
+                    <p>Custom web-based software solutions for your business needs.</p>
+                    <ul class="service-features">
+                        <li>Custom dashboard development</li>
+                        <li>Database integration</li>
+                        <li>User authentication</li>
+                        <li>Real-time updates</li>
+                    </ul>
+                    <a href="#pricing" class="btn btn-secondary">View Pricing</a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Beautiful and intuitive interfaces that enhance user experience.</p>
+                    <ul class="service-features">
+                        <li>User research & testing</li>
+                        <li>Wireframing & prototyping</li>
+                        <li>Interactive design</li>
+                        <li>Design systems</li>
+                    </ul>
+                    <a href="#pricing" class="btn btn-secondary">View Pricing</a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>ERP & Business Software</h3>
+                    <p>Custom enterprise solutions to streamline your operations.</p>
+                    <ul class="service-features">
+                        <li>Inventory management</li>
+                        <li>CRM integration</li>
+                        <li>Reporting & analytics</li>
+                        <li>Workflow automation</li>
+                    </ul>
+                    <a href="#pricing" class="btn btn-secondary">View Pricing</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process Section -->
+    <section class="our-process">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Our <span class="text-accent">Process</span></h2>
+                <p class="section-subtitle">A structured approach to ensure quality and efficiency in every project</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">1</div>
+                    <h4 class="step-title">Discovery</h4>
+                    <p class="step-desc">We learn about your business, goals, and requirements</p>
+                </div>
+                
+                <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">2</div>
+                    <h4 class="step-title">Planning</h4>
+                    <p class="step-desc">We create a detailed project roadmap and strategy</p>
+                </div>
+                
+                <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">3</div>
+                    <h4 class="step-title">Design</h4>
+                    <p class="step-desc">We craft beautiful, user-friendly interfaces</p>
+                </div>
+                
+                <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-number">4</div>
+                    <h4 class="step-title">Development</h4>
+                    <p class="step-desc">We build robust, high-performance solutions</p>
+                </div>
+                
+                <div class="process-step" data-aos="fade-up" data-aos-delay="500">
+                    <div class="step-number">5</div>
+                    <h4 class="step-title">Delivery</h4>
+                    <p class="step-desc">We launch and deploy your project successfully</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Simple <span class="text-accent">Pricing</span></h2>
+                <p class="section-subtitle">Flexible pricing options to suit projects of all sizes</p>
+            </div>
+            
+            <div class="pricing-tabs" data-aos="fade-up">
+                <button class="pricing-tab active">Monthly</button>
+                <button class="pricing-tab">Yearly (Save 20%)</button>
+            </div>
+            
+            <div class="pricing-grid">
+                <!-- Basic Plan -->
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Basic</h3>
+                    <div class="price">$499<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>5 Page Website</li>
+                        <li>Responsive Design</li>
+                        <li>Basic SEO</li>
+                        <li>1 Revision Round</li>
+                        <li class="disabled">E-commerce Functionality</li>
+                        <li class="disabled">Custom Web Application</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-secondary">Get Started</a>
+                </div>
+                
+                <!-- Professional Plan -->
+                <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="200">
+                    <div class="popular-label">Popular</div>
+                    <h3>Professional</h3>
+                    <div class="price">$999<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>10-15 Page Website</li>
+                        <li>Advanced Design</li>
+                        <li>SEO Optimization</li>
+                        <li>3 Revision Rounds</li>
+                        <li>Basic E-commerce</li>
+                        <li class="disabled">Custom Web Application</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Get Started</a>
+                </div>
+                
+                <!-- Enterprise Plan -->
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Enterprise</h3>
+                    <div class="price">$2,499<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Unlimited Pages</li>
+                        <li>Custom Design</li>
+                        <li>Advanced SEO</li>
+                        <li>Unlimited Revisions</li>
+                        <li>Advanced E-commerce</li>
+                        <li>Custom Web Application</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-secondary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" data-aos="fade-up">
+        <div class="container">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Contact us today to discuss your requirements and get a personalized quote</p>
+            <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>DEVIZAL</h3>
+                    <p>Turning ideas into digital reality with innovative solutions and creative design.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Web Development</a></li>
+                        <li><a href="services.html">Web Applications</a></li>
+                        <li><a href="services.html">E-commerce</a></li>
+                        <li><a href="services.html">Software Development</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> info@devizal.com</li>
+                        <li><i class="fas fa-phone"></i> +123 456 7890</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Digital City</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 DEVIZAL. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Initialize AOS Animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Sticky Header
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+        
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Pricing Tabs
+        const pricingTabs = document.querySelectorAll('.pricing-tab');
+        
+        pricingTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                pricingTabs.forEach(tab => tab.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Update pricing display
+                const isMonthly = tab.textContent.includes('Monthly');
+                const prices = document.querySelectorAll('.price');
+                
+                prices.forEach(price => {
+                    if (isMonthly) {
+                        price.innerHTML = price.innerHTML.replace('$1,999', '$2,499')
+                            .replace('$799', '$999')
+                            .replace('$399', '$499');
+                    } else {
+                        price.innerHTML = price.innerHTML.replace('$2,499', '$1,999')
+                            .replace('$999', '$799')
+                            .replace('$499', '$399');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
